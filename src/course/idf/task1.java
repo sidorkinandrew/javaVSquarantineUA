@@ -8,9 +8,7 @@ public class task1 {
     public static String decimalToBinary(int decimal) {
         return Integer.toBinaryString(decimal);
     }
-    public static String decimalToHexadecimal(int dec) {
-        return Integer.toHexString(dec);
-    }
+    public static String decimalToHexadecimal(int dec) { return Integer.toHexString(dec); }
     public int  binaryToDecimal(String binaryString) {
         return Integer.parseInt(binaryString,2);
     }
