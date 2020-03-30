@@ -16,14 +16,28 @@ public class task1 {
         04 4050     35B     0011 1011 1011
         05 3120     2B7     0010 0111 1001
         */
+        printFancyHeader("Converting K(DEC) to BIN and HEX");
         int[] arrayOfK = {3009, 3555, 2996, 4050, 3120};
-        for (int intNumber : arrayOfK) {
-            System.out.println(intNumber+"in BIN: 0b" + decimalToBinary(intNumber)+" in HEX: 0x"+decimalToHexadecimal(intNumber));
+        for (int intNumber : arrayOfK) { // convert K(DEC) to BIN and HEX
+            System.out.println(intNumber + " in BIN: 0b" + decimalToBinary(intNumber) + " in HEX: 0x" + decimalToHexadecimal(intNumber));
+        }
+        printFancyHeader("Converting L(HEX) to BIN and DEC");
+        String[] arrayOfL = {"2AB", "4BA", "27E", "35B", "2B7"};
+        for (String numberString : arrayOfL) { // convert L(HEX) to BIN and DEC
+            System.out.println("0x"+numberString + " in BIN: 0b" + hexadecimalToBinary(numberString) + " in DEC: " + hexadecimalToDecimal(numberString));
         }
     }
 
+    public static void printFancyHeader(String aText){
+        System.out.println("==========================================");
+        System.out.println(aText);
+        System.out.println("==========================================");
+    }
+    public static String hexadecimalToBinary(String hexadecimalString) {
+        return decimalToBinary(hexadecimalToDecimal(hexadecimalString));
+    }
 
-    public static String binaryToHexadecimal(String binaryString){
+    public static String binaryToHexadecimal(String binaryString) {
         return decimalToHexadecimal(binaryToDecimal(binaryString));
     }
 
@@ -39,7 +53,7 @@ public class task1 {
         return Integer.parseInt(binaryString, 2);
     }
 
-    public int hexadecimalToDecimal(String hexString) {
+    public static int hexadecimalToDecimal(String hexString) {
         return Integer.parseInt(hexString, 16);
     }
 }
