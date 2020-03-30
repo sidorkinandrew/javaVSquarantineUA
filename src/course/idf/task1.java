@@ -1,5 +1,7 @@
 package course.idf;
 
+import java.math.BigInteger;
+
 public class task1 {
     public static void main(String[] args) {
         /* convert numbers
@@ -14,17 +16,30 @@ public class task1 {
         04 4050     35B     0011 1011 1011
         05 3120     2B7     0010 0111 1001
         */
-        System.out.println("0b"+decimalToBinary(123));
-
+        int[] arrayOfK = {3009, 3555, 2996, 4050, 3120};
+        for (int intNumber : arrayOfK) {
+            System.out.println(intNumber+"in BIN: 0b" + decimalToBinary(intNumber)+" in HEX: 0x"+decimalToHexadecimal(intNumber));
+        }
     }
+
+
+    public static String binaryToHexadecimal(String binaryString){
+        return decimalToHexadecimal(binaryToDecimal(binaryString));
+    }
+
     public static String decimalToBinary(int decimal) {
         return Integer.toBinaryString(decimal);
     }
-    public static String decimalToHexadecimal(int dec) { return Integer.toHexString(dec); }
-    public int  binaryToDecimal(String binaryString) {
-        return Integer.parseInt(binaryString,2);
+
+    public static String decimalToHexadecimal(int dec) {
+        return Integer.toHexString(dec);
     }
-    public int  hexadecimalToDecimal(String hexString) {
-        return Integer.parseInt(hexString,16);
+
+    public static int binaryToDecimal(String binaryString) {
+        return Integer.parseInt(binaryString, 2);
+    }
+
+    public int hexadecimalToDecimal(String hexString) {
+        return Integer.parseInt(hexString, 16);
     }
 }
