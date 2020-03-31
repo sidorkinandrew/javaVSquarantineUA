@@ -6,13 +6,13 @@ public class task1_3 {
         {10314.7, -22.09, 0.017} */
         double[] arrayOfNumbers = {10314.7, -22.09, 0.017};
         for (double aNumber : arrayOfNumbers) {
-            String conversionResult = IEEE754toBinary(aNumber);
+            String conversionResult = doubletoBinary754(aNumber);
             System.out.println(aNumber + " in IEEE-754 equals to " + conversionResult);
-            System.out.println("re-checking back: " + binaryToIEEE754(conversionResult));
+            System.out.println("re-checking back: " + binary754ToDouble(conversionResult));
         }
     }
 
-    private static double binaryToIEEE754(String binaryString) {
+    private static double binary754ToDouble(String binaryString) {
         if ((binaryString.length() == 64) && (binaryString.charAt(0) == '1')) {
             String negativeBinaryString = binaryString.substring(1);
             long longFromBinary = Long.parseLong(negativeBinaryString, 2);
@@ -22,8 +22,8 @@ public class task1_3 {
         return Double.longBitsToDouble(longFromBinary);
     }
 
-    private static String IEEE754toBinary(double IEEE754Number) {
-        long longBits = Double.doubleToLongBits(IEEE754Number);
+    private static String doubletoBinary754(double doubleNumber) {
+        long longBits = Double.doubleToLongBits(doubleNumber);
         return Long.toBinaryString(longBits);
     }
 }
