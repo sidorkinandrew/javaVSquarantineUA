@@ -2,25 +2,26 @@ package course.idf;
 
 public class task_3 {
     public static void main(String[] args) {
+        int defaultDepth = 15;
         // Task 1
         printFancyHeader("Lesson 3. Task 1");
         for (int i = 0; i < 4; i++) {
-            printFancyHeader("Triangle type"+(i+1)+" depth = 10");
-            buildTriangle(i+1, 10);
+            printFancyHeader("Triangle type" + (i + 1) + " depth = " + defaultDepth);
+            buildTriangle(i + 1, defaultDepth);
         }
         // Task 2
-        printFancyHeader("Lesson 3. Task 2. Type 1");
-        buildTriangle(1, 10);
-        buildTriangle(2, 10);
-        printFancyHeader("Lesson 3. Task 2. Type 2");
-        buildTriangle(1, 10);
-        buildTriangle(3, 10);
-        printFancyHeader("Lesson 3. Task 2. Type 3");
-        buildTriangle(4, 10);
-        buildTriangle(3, 10);
-        printFancyHeader("Lesson 3. Task 2. Type 4");
-        buildTriangle(4, 10);
-        buildTriangle(2, 10);
+        printFancyHeader("Lesson 3. Task 2. Type 1"); // using triangles type 1 + type 2
+        buildTriangle(1, defaultDepth);
+        buildTriangle(2, defaultDepth);
+        printFancyHeader("Lesson 3. Task 2. Type 2"); // using triangles type 1 + type 3
+        buildTriangle(1, defaultDepth);
+        buildTriangle(3, defaultDepth);
+        printFancyHeader("Lesson 3. Task 2. Type 3"); // using triangles type 4 + type 2
+        buildTriangle(4, defaultDepth);
+        buildTriangle(3, defaultDepth);
+        printFancyHeader("Lesson 3. Task 2. Type 4"); // using triangles type 4 + type 2
+        buildTriangle(4, defaultDepth);
+        buildTriangle(2, defaultDepth);
     }
 
     public static void buildTriangle(int mode, int depth) {
