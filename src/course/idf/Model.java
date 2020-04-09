@@ -2,7 +2,7 @@ package course.idf;
 
 public class Model {
     static class Triangle {
-        public String builtTrangle;
+        public String[] builtTrangle;
         String rowFiller = ".";
         int maxWidth = 10;
         int mode = 1;

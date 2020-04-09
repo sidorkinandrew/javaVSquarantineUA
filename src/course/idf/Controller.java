@@ -13,17 +13,17 @@ public class Controller {
         modelData.builtTrangle = buildTriangle(modelData.mode, modelData.maxWidth, modelData.rowFiller);
     }
 
-    String buildTriangle(int mode, int maxWidth, String rowFiller) {
-        StringBuilder resultString = new StringBuilder();
+    String[] buildTriangle(int mode, int maxWidth, String rowFiller) {
+        String[] resultString = new String[maxWidth];
         String space = " ";
         for (int i = 0; i < maxWidth; i++)
-            if (mode == 1) resultString.append(rowFiller.repeat(i + 1) + "\n");  // left-up
+            if (mode == 1) resultString[i] = rowFiller.repeat(i + 1);  // left-up
             else if (mode == 2)
-                resultString.append(rowFiller.repeat(maxWidth - i) + space.repeat(i) + "\n"); //left-down
+                resultString[i] = rowFiller.repeat(maxWidth - i) + space.repeat(i); //left-down
             else if (mode == 3)
-                resultString.append(space.repeat(i) + rowFiller.repeat(maxWidth - i) + "\n"); // right-down
+                resultString[i] = space.repeat(i) + rowFiller.repeat(maxWidth - i); // right-down
             else if (mode == 4)
-                resultString.append(space.repeat(maxWidth - i - 1) + rowFiller.repeat(i + 1) + "\n"); // right-up
-        return resultString.toString();
+                resultString[i] = space.repeat(maxWidth - i - 1) + rowFiller.repeat(i + 1); // right-up
+        return resultString;
     }
 }

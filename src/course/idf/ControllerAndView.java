@@ -12,8 +12,8 @@ public class ControllerAndView {
         Model.DoubleTriangle task2Model = new Model.DoubleTriangle();
         int[][] task2modes = {{1, 1, 4, 4}, {2, 3, 3, 2}};
         for (int current_mode = 0; current_mode < task2modes[0].length; current_mode++) {
-            task2Model.firstTriangle.mode = task2modes[0][current_mode];  // type 1
-            task2Model.secondTriangle.mode = task2modes[1][current_mode];  // type 1;
+            task2Model.firstTriangle.mode = task2modes[0][current_mode];
+            task2Model.secondTriangle.mode = task2modes[1][current_mode];
             taskController.buildDoubleTriangles(task2Model);
             taskView.displayDoubleTriangles(task2Model);
         }
