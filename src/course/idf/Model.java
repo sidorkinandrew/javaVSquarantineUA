@@ -2,7 +2,7 @@ package course.idf;
 
 public class Model {
     static class Triangle {
-        public String[] builtTrangle;
+        public String[] builtTriangle;
         String rowFiller = ".";
         int maxWidth = 10;
         int mode = 1;
@@ -35,9 +35,9 @@ public class Model {
         int numLevels;
         ChristmasTreeElement[] treeElements;
         String rowFiller;
+        int maxTreeWidth;
 
-        public void setRowFiller(String rowFiller) {
-            this.rowFiller = rowFiller;
+        public void updateRowFiller(String rowFiller) {
             for (int level = 0; level < numLevels; level++) {
                 this.treeElements[level].rowFiller = rowFiller;
                 this.treeElements[level].firstTriangle.rowFiller = rowFiller;
@@ -45,21 +45,31 @@ public class Model {
             }
         }
 
-        public void setNumLevels(int numLevels) {
-            this.numLevels = numLevels;
-            for (int level = 0; level < numLevels; level++) {
-                this.treeElements[level].padding = (numLevels - level) * 2;
+        private void updateTreeMaxWidth(int maxTreeWidth) {
+            for (int level = 0; level < this.numLevels; level++) {
+                this.treeElements[level].maxTreeWidth = maxTreeWidth - level;
+                this.treeElements[level].firstTriangle.maxWidth = maxTreeWidth - level;
+                this.treeElements[level].secondTriangle.maxWidth = maxTreeWidth - level;
             }
         }
 
-        ChristmasTree(int numLevels, String rowFiller) {
+        public void updateNumLevelsPadding(int numLevels) {
+            for (int level = 0; level < numLevels; level++) {
+                this.treeElements[level].padding = this.maxTreeWidth - this.treeElements[level].maxTreeWidth;
+            }
+        }
+
+        ChristmasTree(int numLevels, String rowFiller, int maxTreeWidth) {
             this.treeElements = new ChristmasTreeElement[numLevels];
+            this.maxTreeWidth = maxTreeWidth;
+            this.numLevels = numLevels;
+            this.rowFiller = rowFiller;
             for (int level = 0; level < numLevels; level++) {
                 this.treeElements[level] = new ChristmasTreeElement(rowFiller);
             }
-            this.setRowFiller(rowFiller);
-            this.setNumLevels(numLevels);
+            this.updateRowFiller(rowFiller);
+            this.updateTreeMaxWidth(maxTreeWidth);
+            this.updateNumLevelsPadding(numLevels);
         }
-
     }
 }
