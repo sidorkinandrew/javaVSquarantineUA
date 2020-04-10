@@ -1,6 +1,18 @@
 package course.idf;
 
 public class Controller {
+    void buildChristmasTree(Model.ChristmasTree christmasTree){
+        for (Model.ChristmasTreeElement treeElement: christmasTree.treeElements) {
+            buildChristmasTreeElement(treeElement);
+        }
+    }
+    void buildChristmasTreeElement(Model.ChristmasTreeElement treeElement){
+        treeElement.firstTriangle.rowFiller = treeElement.rowFiller;
+        treeElement.secondTriangle.rowFiller = treeElement.rowFiller;
+        buildTriangle(treeElement.firstTriangle);
+        buildTriangle(treeElement.secondTriangle);
+    }
+
     void buildDoubleTriangles(Model.DoubleTriangle modelData) {
         modelData.firstTriangle.builtTrangle = buildTriangle(modelData.firstTriangle.mode,
                 modelData.firstTriangle.maxWidth, modelData.firstTriangle.rowFiller);

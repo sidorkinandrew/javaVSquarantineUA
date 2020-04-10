@@ -21,4 +21,16 @@ public class View {
         System.out.println(String.join("\n", prebuiltDoubleTriangles.secondTriangle.builtTrangle));
     }
 
+    void displayChristmasTreeElement(Model.ChristmasTreeElement treeElement) {
+        for (int layer = 0; layer < treeElement.firstTriangle.builtTrangle.length; layer++) {
+            int firstTriangleLength = treeElement.firstTriangle.builtTrangle[layer].length();
+            System.out.print(" ".repeat(treeElement.padding) + treeElement.firstTriangle.builtTrangle[layer].substring(0, firstTriangleLength - 1));
+            System.out.println(treeElement.secondTriangle.builtTrangle[layer]);
+        }
+    }
+    void displayChristmasTree(Model.ChristmasTree christmasTree){
+        for (Model.ChristmasTreeElement treeElement: christmasTree.treeElements) {
+            displayChristmasTreeElement(treeElement);
+        }
+    }
 }

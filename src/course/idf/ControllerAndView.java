@@ -2,9 +2,9 @@ package course.idf;
 
 public class ControllerAndView {
     public static void main(String[] args) {
-        Model.Triangle task1Model = new Model.Triangle();
         View taskView = new View();
         Controller taskController = new Controller();
+/*      Model.Triangle task1Model = new Model.Triangle();
         for (task1Model.mode = 1; task1Model.mode < 5; task1Model.mode++) {
             taskController.buildTriangle(task1Model);
             taskView.displayTriangle(task1Model);
@@ -16,6 +16,9 @@ public class ControllerAndView {
             task2Model.secondTriangle.mode = task2modes[1][current_mode];
             taskController.buildDoubleTriangles(task2Model);
             taskView.displayDoubleTriangles(task2Model);
-        }
+        }*/
+        Model.ChristmasTree newYearTree = new Model.ChristmasTree(5, "*");
+        taskController.buildChristmasTree(newYearTree);
+        taskView.displayChristmasTree(newYearTree);
     }
 }
